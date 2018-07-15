@@ -1,0 +1,22 @@
+#ifdef GL_ES
+precision mediump float;
+#endif
+
+varying vec3 v_normal;
+varying vec2 v_texCoord0;
+uniform sampler2D diffuseTexture;
+uniform vec4 ambientColor;
+uniform vec4 diffuseColor;
+uniform vec4 specularColor;
+uniform vec4 shininessColor;
+uniform vec4 maskColor;
+uniform bool isNoLightEffect;
+void main()
+{
+	vec4 diffuseTexColor = texture2D(diffuseTexture, v_texCoord0);
+	if (isNoLightEffect) {
+		gl_FragColor = vec4(maskColor.rgb, diffuseTexColor.a);
+	} else {
+		gl_FragColor = vec4((maskColor + ambientColor * diffuseColor * diffuseTexColor * specularColor * shininessColor * 0.0).rgb, diffuseTexColor.a);
+	}
+}

@@ -1,0 +1,32 @@
+# Blender MTL File: 'bike.blend'
+# Material Count: 3
+
+newmtl TextureMapped
+Ns 20
+Ka 0.100000 0.100000 0.100000
+Kd 0.900000 0.900000 0.900000
+Ks 1.000000 1.000000 1.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd bike.etc1
+
+newmtl TextureMappedGold
+Ns 3
+Ka 0.250000 0.100000 0.500000
+Kd 0.750000 0.900000 0.500000
+Ks 1.000000 1.000000 1.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd bike.etc1
+
+newmtl TextureMappedSliver
+Ns 3
+Ka 0.100000 0.100000 0.100000
+Kd 0.900000 0.900000 0.900000
+Ks 1.000000 1.000000 1.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd bike.etc1

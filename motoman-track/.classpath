@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
+	<classpathentry exported="true" kind="lib" path="/motoman/libs/gdx.jar" sourcepath="/motoman/libs/gdx-sources.jar"/>
+	<classpathentry exported="true" kind="lib" path="/motoman-desktop/libs/gdx-backend-lwjgl.jar" sourcepath="/motoman-desktop/libs/gdx-backend-lwjgl-sources.jar"/>
+	<classpathentry exported="true" kind="lib" path="/motoman-desktop/libs/gdx-backend-lwjgl-natives.jar"/>
+	<classpathentry exported="true" kind="lib" path="/motoman-desktop/libs/gdx-natives.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

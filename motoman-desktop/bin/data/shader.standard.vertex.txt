@@ -1,0 +1,26 @@
+attribute vec4 a_position;
+attribute vec3 a_normal;
+attribute vec2 a_texCoord0;
+attribute float a_skeleton;
+varying vec3 v_normal;
+varying vec2 v_texCoord0;
+uniform mat4 modelviewproj;
+uniform mat4 modelview;
+uniform mat4 skeletonmat[32];
+void main()
+{
+	v_texCoord0 = a_texCoord0;
+	
+	int skeleton = int(a_skeleton);
+	if (skeleton == 0) {
+		v_normal = vec3(modelview * vec4(a_normal, 1)) - vec3(modelview[3][0], modelview[3][1], modelview[3][2]);
+		v_normal = v_normal / length(v_normal);
+		gl_Position = modelviewproj * a_position;
+	} else {
+		skeleton -= 1;
+		mat4 skemodelview = modelview * skeletonmat[skeleton];
+		v_normal = vec3(skemodelview * vec4(a_normal, 1)) - vec3(skemodelview[3][0], skemodelview[3][1], skemodelview[3][2]);
+		v_normal = v_normal / length(v_normal);
+		gl_Position = modelviewproj * skeletonmat[skeleton] * a_position;
+	}
+} 

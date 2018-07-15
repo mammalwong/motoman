@@ -1,0 +1,15 @@
+#ifdef GL_ES
+precision mediump float;
+#endif
+
+#define LUMA(COLOR) (COLOR.r * 0.2126 + COLOR.g * 0.7152 + COLOR.b * 0.0722)
+
+varying vec2 v_texCoord0;
+uniform sampler2D mainFrameBuffer;
+uniform sampler2D bloomFrameBuffer;
+void main()
+{
+	vec3 mainFrameColor = texture2D(mainFrameBuffer, v_texCoord0).xyz;
+	vec3 bloomFrameColor = texture2D(bloomFrameBuffer, v_texCoord0).xyz;
+	gl_FragColor = vec4(mainFrameColor + bloomFrameColor, 1.0);
+}

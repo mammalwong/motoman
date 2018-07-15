@@ -1,0 +1,45 @@
+#ifdef GL_ES
+#ifdef GL_FRAGMENT_PRECISION_HIGH
+    precision highp float;
+#define WORLDPOSP highp
+#else
+    precision mediump float;
+#define WORLDPOSP mediump
+#endif
+#else
+#define WORLDPOSP 
+#endif
+
+#define BlurScale 1.0;
+
+varying WORLDPOSP vec3 nowPos;
+varying WORLDPOSP vec3 lastPos;
+uniform sampler2D diffuseTexture;
+uniform sampler2D pass1Texture;
+uniform vec2 frameBufferPixelSize;
+uniform vec4 ambientColor;
+uniform vec4 diffuseColor;
+uniform vec4 specularColor;
+uniform vec4 shininessColor;
+uniform bool dummy;
+
+void main()
+{
+	if (!dummy) {
+		vec2 v_pvelo = (nowPos.xy / nowPos.z - lastPos.xy / lastPos.z) * 0.5 * BlurScale;
+	
+		vec4 color = vec4(0.0, 0.0, 0.0, 0.0);
+		vec2 texCoord = vec2(gl_FragCoord.x * frameBufferPixelSize.x, gl_FragCoord.y * frameBufferPixelSize.y);
+		vec2 texOffset = vec2(0.0, 0.0);
+		vec2 subStep = v_pvelo * 0.2;
+		for (int i = 0; i < 5; ++i) {
+			color += texture2D(pass1Texture, texCoord - texOffset);
+			texOffset += subStep;
+		}
+		color *= 0.2;
+		gl_FragColor = color;
+	} else {
+		vec4 diffuseTexColor = texture2D(diffuseTexture, vec2(0.0, 0.0));
+		gl_FragColor = ambientColor * diffuseTexColor + diffuseColor * diffuseTexColor + specularColor * shininessColor;
+	}
+}

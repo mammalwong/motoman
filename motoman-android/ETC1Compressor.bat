@@ -1,0 +1,1 @@
+java -classpath "C:\Downloads\libgdx-0.9.8\gdx.jar;C:\Downloads\libgdx-0.9.8\gdx-natives.jar;C:\Downloads\libgdx-0.9.8\extensions\gdx-tools\gdx-tools.jar" com.badlogic.gdx.tools.etc1.ETC1Compressor "C:\Downloads\motoman\motoman-android\etc1Input" "C:\Downloads\motoman\motoman-android\etc1"

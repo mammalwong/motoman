@@ -1,0 +1,27 @@
+#ifdef GL_ES
+precision mediump float;
+#endif
+
+varying vec2 v_texCoord0;
+uniform sampler2D frameBuffer;
+uniform float blurSize;
+void main()
+{
+	vec3 sum = vec3(0.0);
+
+	vec4 m = texture2D(frameBuffer, vec2(v_texCoord0.x, v_texCoord0.y));
+	//if (m.r + m.g + m.b > 0.0) {
+	//	gl_FragColor = m;
+	//} else { 
+	   sum += texture2D(frameBuffer, vec2(v_texCoord0.x - 4.0*blurSize, v_texCoord0.y)).rgb * 0.05;
+	   sum += texture2D(frameBuffer, vec2(v_texCoord0.x - 3.0*blurSize, v_texCoord0.y)).rgb * 0.09;
+	   sum += texture2D(frameBuffer, vec2(v_texCoord0.x - 2.0*blurSize, v_texCoord0.y)).rgb * 0.12;
+	   sum += texture2D(frameBuffer, vec2(v_texCoord0.x - blurSize, v_texCoord0.y)).rgb * 0.15;
+	   sum += m.rgb * 0.16;
+	   sum += texture2D(frameBuffer, vec2(v_texCoord0.x + blurSize, v_texCoord0.y)).rgb * 0.15;
+	   sum += texture2D(frameBuffer, vec2(v_texCoord0.x + 2.0*blurSize, v_texCoord0.y)).rgb * 0.12;
+	   sum += texture2D(frameBuffer, vec2(v_texCoord0.x + 3.0*blurSize, v_texCoord0.y)).rgb * 0.09;
+	   sum += texture2D(frameBuffer, vec2(v_texCoord0.x + 4.0*blurSize, v_texCoord0.y)).rgb * 0.05;
+	   gl_FragColor = vec4(sum, 1.0);
+   //}
+}

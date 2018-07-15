@@ -1,0 +1,42 @@
+#ifdef GL_ES
+precision mediump float;
+#endif
+
+varying vec3 v_normal;
+varying vec2 v_texCoord0;
+uniform sampler2D diffuseTexture;
+uniform vec4 ambientColor;
+uniform vec4 diffuseColor;
+uniform vec4 specularColor;
+uniform vec4 shininessColor;
+uniform bool isNoLightEffect;
+void main()
+{
+	vec4 diffuseTexColor = texture2D(diffuseTexture, v_texCoord0);
+	if (isNoLightEffect) {
+		gl_FragColor = diffuseTexColor;
+	} else {
+		vec3 lightDir = vec3(1, 1, 1);
+		lightDir = lightDir / length(lightDir);
+		vec3 lightPan = vec3(1, 2, 2);
+		lightPan = lightPan / length(lightPan);
+		float lightDirDotNor = dot(lightDir, v_normal);
+		if (lightDirDotNor < 0.0)
+		{
+			lightDirDotNor = 0.0;
+		}
+		float lightPanDotNor = dot(lightPan, v_normal);
+		if (lightPanDotNor < 0.0)
+		{
+			lightPanDotNor = 0.0;
+		}
+		float shininess = 1.0 / shininessColor.r;
+		
+		gl_FragColor = ambientColor * diffuseTexColor + diffuseColor * diffuseTexColor * lightDirDotNor;
+		if (lightPanDotNor > 0.0)
+		{
+			gl_FragColor += specularColor * pow(lightPanDotNor, shininess);
+		}
+		gl_FragColor.a = diffuseTexColor.a;
+	}
+}

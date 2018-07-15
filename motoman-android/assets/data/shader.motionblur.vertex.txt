@@ -1,0 +1,30 @@
+attribute vec4 a_position;
+attribute vec3 a_normal;
+attribute vec2 a_texCoord0;
+attribute float a_skeleton;
+varying vec3 nowPos;
+varying vec3 lastPos;
+uniform mat4 viewproj;
+uniform mat4 lastviewproj;
+uniform mat4 viewprojinv;
+uniform mat4 modelviewproj;
+uniform mat4 modelview;
+uniform mat4 skeletonmat[32];
+uniform bool dummy;
+void main()
+{
+	int skeleton = int(a_skeleton);
+	if (skeleton == 0) {
+		gl_Position = modelviewproj * a_position;
+	} else {
+		skeleton -= 1;
+		gl_Position = modelviewproj * skeletonmat[skeleton] * a_position;
+	}
+	
+	vec4 worldPos = viewprojinv * gl_Position;
+	nowPos = (viewproj * worldPos).xyw;
+	lastPos = (lastviewproj * worldPos).xyw;
+	
+	if (dummy)
+		gl_Position = modelview * gl_Position;
+} 

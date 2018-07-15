@@ -1,0 +1,12 @@
+# Blender MTL File: 'bike.blend'
+# Material Count: 1
+
+newmtl TextureMapped
+Ns 20
+Ka 0.100000 0.100000 0.100000
+Kd 0.900000 0.900000 0.900000
+Ks 1.000000 1.000000 1.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd bike.png
