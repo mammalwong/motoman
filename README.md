@@ -1,4 +1,5 @@
 # Motoman
+![screenshot](https://raw.githubusercontent.com/mammalwong/motoman/master/screenshots/425276_10201474466443234_450159264_n.jpg)
 This is an android motorcycle racing game developed by myself alone during mid 2013.
 This repository is the result of 1 month of basic development and 1 month of fine tuning.
 The project is only build on top of a cross platform OpenGL wrapper, no game engine is based on.
