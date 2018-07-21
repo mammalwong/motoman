@@ -20,8 +20,7 @@ Blender was used to create the 3d models.
 ![screenshot](https://raw.githubusercontent.com/mammalwong/motoman/master/screenshots/538038_10201266638527666_537886606_n.jpg)
 ![screenshot](https://raw.githubusercontent.com/mammalwong/motoman/master/screenshots/37046_10201266638487665_36700105_n.jpg)
 ![screenshot](https://raw.githubusercontent.com/mammalwong/motoman/master/screenshots/913734_10201266638447664_1988336069_o.jpg)
-![screenshot]
-(https://raw.githubusercontent.com/mammalwong/motoman/master/screenshots/37046_10201266638487665_36700105_n.jpg)
+![screenshot](https://raw.githubusercontent.com/mammalwong/motoman/master/screenshots/37046_10201266638487665_36700105_n.jpg)
 ![screenshot](https://raw.githubusercontent.com/mammalwong/motoman/master/screenshots/936192_10201317985131299_43361273_n.jpg)
 
 ### Video demos:
