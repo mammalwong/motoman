@@ -34,3 +34,8 @@ Blender was used to create the 3d models.
 [Demo on PC](https://www.youtube.com/watch?v=eoEkVXiIgFU)
 
 [Demo on Mobile](https://www.youtube.com/watch?v=AR22-CrtBdw)
+
+### Prebuilt android APK:
+[Prebuilt latest version with all shader effect and simple steering control](https://github.com/mammalwong/motoman/blob/master/motoman-android/bin/motoman-android.apk)
+
+[Prebuilt old version with shader effect off and separated steering control](https://github.com/mammalwong/motoman/blob/master/motoman-android/motoman-android.apk)
