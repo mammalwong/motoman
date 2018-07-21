@@ -23,6 +23,6 @@ Blender was used to create the 3d models.
 ![screenshot](https://raw.githubusercontent.com/mammalwong/motoman/master/screenshots/37046_10201266638487665_36700105_n.jpg)
 ![screenshot](https://raw.githubusercontent.com/mammalwong/motoman/master/screenshots/936192_10201317985131299_43361273_n.jpg)
 
-### Video demos:
+### Youtube demos:
 [Demo on PC](https://www.youtube.com/watch?v=eoEkVXiIgFU)
 [Demo on Mobile](https://www.youtube.com/watch?v=AR22-CrtBdw)
