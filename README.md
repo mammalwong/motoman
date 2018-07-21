@@ -3,7 +3,7 @@
 
 This is an android motorcycle racing game developed by myself alone during mid 2013.
 This repository is the result of 1 month of basic development and 1 month of fine tuning.
-The project is only build on top of a cross platform OpenGL wrapper, no game engine is based on.
+The project is only build on top of a cross platform OpenGL wrapper, [libgdx](https://github.com/libgdx/libgdx), no game engine is based on.
 All 3d models, audio, game maths is completed on my own.
 Blender was used to create the 3d models.
 
